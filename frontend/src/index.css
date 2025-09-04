@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@theme {
+  --color-bg-color: black;
+  --color-text-color:#edf0f3;
+  --font-font-size:14px;
+  --font-font-weight:400;
+}
