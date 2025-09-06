@@ -24,8 +24,12 @@ app.use(cookieParser());
 
 //  routes import
 import movieRouter from "../routes/movie.route.js";
+import cityRouter from "../routes/city.route.js";
+import cinemaRouter from "../routes/cinema.route.js";
 
 app.listen(3000, () => {
   console.log("server is running on port 3000");
 });
-app.use("/api/users", movieRouter);
+app.use("/api/movie", movieRouter);
+app.use("/api/city", cityRouter);
+app.use("/api/cinema", cityRouter);
