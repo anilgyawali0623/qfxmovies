@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 import { Movie } from "./movie.model.js";
 import { City } from "./city.model.js";
-const cinema = new mongoose.Schema(
+
+const cinemaSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -17,54 +18,41 @@ const cinema = new mongoose.Schema(
       required: true,
     },
 
-     rows:[
-       {
-         rowLabel:{
-          type:String,
-           required:true
-
-         },
-         seats:[
+    rows: [
+      {
+        rowLabel: {
+          type: String,
+          required: true,
+        },
+        seats: [
           {
-             number: {
-              type:String,
-               required:true,
-
-             },
-              seats:[
-                 {
-                   number:{
-                     type:Number,
-                      required:true
-                   },
-                    isBooked:{
-                       type:Boolean,
-                        default:false
-                    }
-                 }
-              ]
-          }
-         ]
-       }
-     ],
+            number: {
+              type: Number,
+              required: true,
+            },
+            isBooked: {
+              type: Boolean,
+              default: false,
+            },
+          },
+        ],
+      },
+    ],
 
     schedule: [
       {
         movie: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "Movie",
-          
         },
         showtimes: [
           {
             day: {
               type: String,
-              
             },
             times: [
               {
                 type: String,
-               
               },
             ],
           },
@@ -75,4 +63,4 @@ const cinema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const Cinema = mongoose.model("Cinema", cinema);
+export const Cinema = mongoose.model("Cinema", cinemaSchema);

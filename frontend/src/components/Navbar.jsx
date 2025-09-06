@@ -5,8 +5,11 @@ import BottomHeader from './BottomHeader'
 function Navbar() {
   return (
     <>
+     <div className='sticky '>
+
       <TopHeader/>
       <BottomHeader/>
+     </div>
     </>
   )
 }
