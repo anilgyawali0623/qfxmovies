@@ -16,23 +16,55 @@ const cinema = new mongoose.Schema(
       ref: "City",
       required: true,
     },
+
+     rows:[
+       {
+         rowLabel:{
+          type:String,
+           required:true
+
+         },
+         seats:[
+          {
+             number: {
+              type:String,
+               required:true,
+
+             },
+              seats:[
+                 {
+                   number:{
+                     type:Number,
+                      required:true
+                   },
+                    isBooked:{
+                       type:Boolean,
+                        default:false
+                    }
+                 }
+              ]
+          }
+         ]
+       }
+     ],
+
     schedule: [
       {
         movie: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "Movie",
-          required: true,
+          
         },
         showtimes: [
           {
             day: {
               type: String,
-              required: true,
+              
             },
             times: [
               {
                 type: String,
-                required: true,
+               
               },
             ],
           },

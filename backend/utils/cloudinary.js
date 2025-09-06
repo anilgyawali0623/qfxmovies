@@ -9,11 +9,11 @@ cloudinary.config({
 });
 
 const uploadOnCloudinary = async (localFilePath) => {
-  if (!localFilePath) return null; // safety check
+  if (!localFilePath) return null; 
 
   try {
     const response = await cloudinary.uploader.upload(localFilePath, {
-      resource_type: "auto", // supports images, videos, etc.
+      resource_type: "auto", 
     });
 
     console.log("File uploaded to Cloudinary:", response.secure_url);
@@ -23,16 +23,16 @@ const uploadOnCloudinary = async (localFilePath) => {
       fs.unlinkSync(localFilePath);
     }
 
-    return response.secure_url; // just return URL
+    return response.secure_url; 
   } catch (error) {
     console.error("Cloudinary upload error:", error);
 
-    // Delete temp file safely even if upload fails
+   
     if (fs.existsSync(localFilePath)) {
       fs.unlinkSync(localFilePath);
     }
 
-    throw error; // propagate error to controller
+    throw error; 
   }
 };
 
