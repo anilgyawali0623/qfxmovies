@@ -32,4 +32,4 @@ app.listen(3000, () => {
 });
 app.use("/api/movie", movieRouter);
 app.use("/api/city", cityRouter);
-app.use("/api/cinema", cityRouter);
+app.use("/api/cinema", cinemaRouter);
